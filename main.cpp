@@ -69,6 +69,17 @@ class ScoreBoard
             
         }
 
+        void supprimeScore(int indice){
+            if(taille >= capacite){
+                std::cerr << "Erreur: Indice invalide";
+            }
+
+            for(int i = indice; i < taille - 1; i++){
+                
+            }
+        }
+
+
 
 
 };
