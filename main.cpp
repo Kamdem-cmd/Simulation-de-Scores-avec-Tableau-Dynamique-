@@ -69,14 +69,28 @@ class ScoreBoard
             
         }
 
-        void supprimeScore(int indice){
+        
+        void supprimeScores(int indice){
             if(taille >= capacite){
                 std::cerr << "Erreur: Indice invalide";
             }
 
             for(int i = indice; i < taille - 1; i++){
-                
+                donnees[i] = donnees[i + 1];
             }
+
+            taille--;
+
+            if(taille < capacite / 4 && capacite > 10){
+                redimensionner(capacite / 2);
+            }
+        }
+
+        void affichageScore(){
+            for(int i = 0; i < taille; i++){
+                std::cout << "%d | %d\n", i + 1, donnees[i];
+            }
+
         }
 
 
@@ -85,6 +99,15 @@ class ScoreBoard
 };
 
 
-main(){
-    std::cout << "Hello Rihen" << std::endl;
+int main(){
+    ScoreBoard playerScores;
+
+    playerScores.initialiser();
+
+    playerScores.ajoutScores(3);
+
+    std::cout << "Scores\n";
+    playerScores.affichageScore();
+
+    return (0);
 }
