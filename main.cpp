@@ -1,5 +1,6 @@
 #include <iostream>
 
+// Classe qui contient l'ensemble des scores 
 class ScoreBoard
 {
     private:
@@ -52,11 +53,12 @@ class ScoreBoard
 
             while(compteur < nombre)
             {
-                std::cout << "entrer le score"<< compteur + 1 << ": ";
+                std::cout << "entrer le score "<< compteur + 1 << ": ";
                 std::cin >> donnees[compteur];
                 compteur++;
             }
-            
+             
+            taille = nombre;
         }
        
         /*
@@ -82,13 +84,10 @@ class ScoreBoard
         void affichageScore(){
             std::cout << "Affichage\n";
             for(int i = 0; i < taille; i++){
-                std::cout << i + 1 << " | " << donnees[i] << "\n";
+                std::cout <<"Score " << i + 1 << " | " << donnees[i] << "\n";
             }
+
         }
-
-
-
-
 };
 
 
@@ -99,8 +98,10 @@ int main(){
 
     playerScores.ajoutScores(3);
 
-    std::cout << "Scores\n";
+    std::cout << "Scores \n";
     playerScores.affichageScore();
+
+    playerScores.liberer();
 
     return (0);
 }
