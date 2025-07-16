@@ -80,6 +80,7 @@ class ScoreBoard
         }
         // Méthode qui affiche la totalité des score present dans l'instance  @class Scoreboard
         void affichageScore(){
+            std::cout << "Affichage\n";
             for(int i = 0; i < taille; i++){
                 std::cout << i + 1 << " | " << donnees[i] << "\n";
             }
