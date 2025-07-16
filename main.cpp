@@ -8,19 +8,6 @@ class ScoreBoard
         unsigned int taille; // nombre d'elements actuel stocker
 
     public:
-        // Méthode qui affiche la totalité des score present dans l'instance  @class Scoreboard
-        void affichageScore();
-        /*
-        * parametre: @int, represente le nombre de scores à ajouté
-        * Méthode qui ajoute un nombre définis de score à l'instance @class ScoreBoard
-        */
-        void ajoutScores(int);
-        /*
-        * parametre: @int, represente l'indexe du scores à supprimé
-        * Méthode qui supprime un score définis par son indexe à l'instance @class ScoreBoard
-        */
-        void supprimeScores(int);
-
         // Initialiser le tableau
         void initialiser(int init = 10)
         {
@@ -33,7 +20,7 @@ class ScoreBoard
         void liberer()
         {
             delete[] donnees;
-            donnees = nullptr;
+            donnees = NULL;
             capacite = 0;
             taille = 0;
         }
@@ -52,7 +39,10 @@ class ScoreBoard
             donnees = newScoreBoard;
             capacite = nouvelleCapaciter;
         }
-
+        /*
+        * parametre: @int, represente le nombre de scores à ajouté
+        * Méthode qui ajoute un nombre définis de score à l'instance @class ScoreBoard
+        */
         void ajoutScores(int nombre){
             int compteur = 0;
 
@@ -62,14 +52,17 @@ class ScoreBoard
 
             while(compteur < nombre)
             {
-                std::cout << "entrer le score %d: ",  compteur + 1;
+                std::cout << "entrer le score"<< compteur + 1 << ": ";
                 std::cin >> donnees[compteur];
                 compteur++;
             }
             
         }
-
-        
+       
+        /*
+        * parametre: @int, represente l'indexe du scores à supprimé
+        * Méthode qui supprime un score définis par son indexe à l'instance @class ScoreBoard
+        */
         void supprimeScores(int indice){
             if(taille >= capacite){
                 std::cerr << "Erreur: Indice invalide";
@@ -85,12 +78,11 @@ class ScoreBoard
                 redimensionner(capacite / 2);
             }
         }
-
+        // Méthode qui affiche la totalité des score present dans l'instance  @class Scoreboard
         void affichageScore(){
             for(int i = 0; i < taille; i++){
-                std::cout << "%d | %d\n", i + 1, donnees[i];
+                std::cout << i + 1 << " | " << donnees[i] << "\n";
             }
-
         }
 
 
