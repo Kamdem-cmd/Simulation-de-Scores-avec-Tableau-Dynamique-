@@ -1,4 +1,8 @@
+#ifndef __HEADER_H__
+#define __HEADER_H__
+
 #include <iostream>
+#include "function.cpp"
 
 // Classe qui contient l'ensemble des scores 
 class ScoreBoard
@@ -119,59 +123,4 @@ class ScoreBoard
 unsigned int afficheMenu();
 
 
-int main(){
-    unsigned int choix;
-    ScoreBoard playerScores;
-
-    playerScores.initialiser();
-
-    while (choix <= 4){
-        choix = afficheMenu();
-
-        switch (choix)
-        {
-        case 1:
-            playerScores.affichageScore();
-            break;
-        case 2:
-            unsigned int nombreScore;
-
-            std::cout << "Combien de Scores voullez vous inserer ?\n";
-            std::cin >> nombreScore;
-            playerScores.ajoutScores(nombreScore);
-            break;
-        case 3:
-            unsigned int indice;
-
-            std::cout << "Supprimer Score\n";
-            std::cout << "Indice: ";
-            std::cin >> indice;
-            playerScores.supprimeScores(indice - 1);
-            break;
-        case 4:
-            playerScores.highScore();
-            break;
-    
-        default:
-            break;
-        }
-    }
- 
-    playerScores.liberer();
-
-    return (0);
-}
-
-unsigned int afficheMenu(){
-    unsigned int option;
-
-    std::cout << "1. Afficher Scores\n";
-    std::cout << "2. Inserer Scores\n";
-    std::cout << "3. Supprimer Score\n";
-    std::cout << "4. Plus grand Scores \n";
-    std::cout << "99. Quitter\n";
-
-    std::cin >> option;
-
-    return (option);
-}
+#endif
